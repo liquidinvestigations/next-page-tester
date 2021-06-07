@@ -12,7 +12,7 @@ class IntersectionObserver {
   disconnect() {}
 }
 
-export function initTestHelpers() {
+export function initTestHelpers(): void {
   if (isJSDOMEnvironment()) {
     // Mock IntersectionObserver (Link component relies on it)
     if (!global.IntersectionObserver) {
@@ -26,6 +26,10 @@ export function initTestHelpers() {
 
   if (typeof document !== 'undefined' && typeof afterEach === 'function') {
     afterEach(cleanup);
+
+    // Disable testing library auto cleanup
+    // https://testing-library.com/docs/react-testing-library/setup/#skipping-auto-cleanup
+    process.env.RTL_SKIP_AUTO_CLEANUP = 'true';
   }
 
   // We are intentionally only targeting jest here for it to work with jest.isolatedModules
@@ -35,7 +39,7 @@ export function initTestHelpers() {
   }
 }
 
-export function cleanup() {
+export function cleanup(): void {
   cleanupDOM();
   cleanupEnvVars();
 }

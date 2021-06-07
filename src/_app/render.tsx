@@ -45,7 +45,7 @@ export function renderEnhancedApp({
   appProps: PageProps | undefined;
   pageProps: PageProps | undefined;
   options: ExtendedOptions;
-}) {
+}): JSX.Element {
   let UserEnhancedPage = Page;
   let UserEnhancedApp = App;
 
