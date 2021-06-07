@@ -18,7 +18,6 @@ export async function getStaticProps() {
   return {
     props: {
       fromPage: true,
-      propNameCollision: 'from-page',
     },
   };
 }

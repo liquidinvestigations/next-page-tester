@@ -10,7 +10,7 @@ import CustomAppWithGIP_GIPPage from './__fixtures__/custom-app-with-gip/pages/g
 import CustomAppWithGIP_Page from './__fixtures__/custom-app-with-gip/pages/page';
 
 import CustomAppWithGIPCustomProps from './__fixtures__/custom-app-with-gip-custom-props/pages/_app';
-import CustomAppWithGIPCustomProps_GIP from './__fixtures__/custom-app-with-gip-custom-props/pages/gip';
+import CustomAppWithGIPCustomProps_GIPPage from './__fixtures__/custom-app-with-gip-custom-props/pages/gip';
 import CustomAppWithGIPCustomProps_SSRPage from './__fixtures__/custom-app-with-gip-custom-props/pages/ssr';
 import CustomAppWithGIPCustomProps_SSGPage from './__fixtures__/custom-app-with-gip-custom-props/pages/ssg';
 
@@ -118,11 +118,11 @@ describe('_app support', () => {
         const { nextRoot: actual } = render();
         const { container: expected } = renderWithinNextRoot(
           <CustomAppWithGIPCustomProps
-            Component={CustomAppWithGIPCustomProps_GIP}
+            Component={CustomAppWithGIPCustomProps_GIPPage}
             pageProps={{
               fromPage: true,
             }}
-            customProps={true}
+            appCustomProps={true}
           />
         );
         expectDOMElementsToMatch(actual, expected);
@@ -143,9 +143,8 @@ describe('_app support', () => {
             Component={PageComponent}
             pageProps={{
               fromPage: true,
-              propNameCollision: 'from-page',
             }}
-            customProps={true}
+            appCustomProps={true}
           />
         );
 

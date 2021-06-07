@@ -18,7 +18,6 @@ export async function getServerSideProps() {
   return {
     props: {
       fromPage: true,
-      propNameCollision: 'from-page',
     },
   };
 }
